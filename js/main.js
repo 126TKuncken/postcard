@@ -54,30 +54,29 @@ document.addEventListener('DOMContentLoaded', function() {
         wy: "url('img/wy@2x.jpg')"
     };
 
-    // Elements
+   
     const stateSelect = document.getElementById('states');
     const postcard = document.getElementById('postcard');
     const stateHeading = document.getElementById('state-heading');
     const greeting = document.getElementById('greeting');
 
-    // Function to update postcard based on selected state
+    
     stateSelect.addEventListener('change', function() {
         const selectedState = stateSelect.value;
 
         if (selectedState === 'empty-state') {
-            // Show default state
+         
             postcard.style.backgroundImage = "url('../img/empty-state@2x.jpg')";
             greeting.textContent = "To Generate a Postcard";
             stateHeading.textContent = "Choose a state";
         } else {
-            // Update postcard with the selected state's image and name
+            
             postcard.style.backgroundImage = stateImages[selectedState] || "url('../img/empty-state@2x.jpg')";
             greeting.textContent = "Greetings from";
             stateHeading.textContent = selectedState.charAt(0).toUpperCase() + selectedState.slice(1); // Capitalize first letter of state
         }
     });
 
-    // Initialize with the default state (empty-state)
     stateSelect.value = "empty-state";
     postcard.style.backgroundImage = "url('../img/empty-state@2x.jpg')";
 });
